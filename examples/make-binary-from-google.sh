@@ -5,7 +5,7 @@
 
 # a "googledir" should be in the format 
 # 1gms/vocab_cs.gz [here, vocab_cs.gz should have the unigram frequencies sorted in decreasing order of frequency]
-# 2gms/2gm-0001.gz 2gm-0002.gz É
-# 3gms/3gm-0001.gz É 
+# 2gms/2gm-0001.gz 2gm-0002.gz ï¿½
+# 3gms/3gm-0001.gz ï¿½ 
 # see ../test/edu/berkeley/nlp/lm/io/googledir for an example
-java -ea -mx1000m -server -cp ../src edu.berkeley.nlp.lm.io.MakeLmBinaryFromGoogle ../test/edu/berkeley/nlp/lm/io/googledir google.binary
+java -ea -mx1000m -server -cp ../target/berkeleylm-1.0-SNAPSHOT.jar edu.berkeley.nlp.lm.io.MakeLmBinaryFromGoogle ../src/test/resources/edu/berkeley/nlp/lm/io/googledir ../target/google.binary

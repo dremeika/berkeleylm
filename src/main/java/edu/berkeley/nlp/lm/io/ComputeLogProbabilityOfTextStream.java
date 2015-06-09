@@ -51,14 +51,11 @@ public class ComputeLogProbabilityOfTextStream {
         NgramLanguageModel<String> lm = readBinary(vocabFile, binaryFile);
         double perplexity = computeProb(files, lm);
         System.out.println(String.format("Perplexity of the text is: %f", perplexity));
-        writer.close();
+        if (writer != null) {
+            writer.close();
+        }
     }
 
-    /**
-     * @param files
-     * @param lm
-     * @throws IOException
-     */
     private static double computeProb(List<String> files, NgramLanguageModel<String> lm) throws IOException {
         double logProb = 0.0;
         long wordCount = 0;
@@ -82,11 +79,6 @@ public class ComputeLogProbabilityOfTextStream {
         return Math.pow(2, -logProb/wordCount);
     }
 
-    /**
-     * @param vocabFile
-     * @param binaryFile
-     * @return
-     */
     private static NgramLanguageModel<String> readBinary(String vocabFile, String binaryFile) {
         NgramLanguageModel<String> lm;
         if (vocabFile != null) {
